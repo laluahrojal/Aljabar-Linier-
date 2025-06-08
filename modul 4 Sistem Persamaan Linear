@@ -1,0 +1,291 @@
+Import Library (1)
+
+# import numpy as np
+# import matplotlib.pyplot as plt
+numpy (disingkat np): Digunakan untuk operasi numerik seperti array dan aljabar linier.
+
+matplotlib.pyplot (disingkat plt): Untuk membuat grafik/memvisualisasikan data.
+
+Mendefinisikan Matriks dan Vektor
+# A = np.array([[2, 3], [1, -1]])
+# b = np.array([7, 1])
+A adalah matriks koefisien dari sistem persamaan linear:
+Persamaan 1: 2x + 3y = 7
+Persamaan 2: x - y = 1
+b adalah vektor hasil dari sistem: [7, 1]
+
+Menyelesaikan SPL
+# solusi = np.linalg.solve(A, b)
+Menggunakan np.linalg.solve() untuk menyelesaikan SPL Ax = b.
+Hasilnya adalah array [x, y], yaitu solusi dari kedua persamaan.
+
+Menampilkan Solusi
+# print("Solusi (NumPy): x =", solusi[0], ", y =", solusi[1])
+Menampilkan nilai x dan y yang menjadi solusi SPL tersebut.
+
+Membuat Rentang Nilai x
+# x = np.linspace(-5, 5, 400)
+Membuat 400 nilai x dari -5 hingga 5 untuk digambar di grafik.
+
+Menyusun Persamaan Jadi y = f(x)
+# y1 = (7 - 2*x) / 3
+# y2 = x - 1
+Mengubah bentuk persamaan SPL menjadi fungsi y:
+y1: dari 2x + 3y = 7 → y = (7 - 2x)/3
+y2: dari x - y = 1 → y = x - 1
+
+ Menggambar Garis Persamaan
+# plt.plot(x, y1, label='2x + 3y = 7', color='blue')
+# plt.plot(x, y2, label='x - y = 1', color='green')
+Menggambar grafik kedua garis dengan warna dan label berbeda.
+
+Menandai Titik Solusi
+# plt.plot(solusi[0], solusi[1], 'ro')
+Menandai titik potong (solusi SPL) dengan titik merah (r) berbentuk lingkaran (o).
+
+Memberi Label pada Titik Solusi
+# plt.text(solusi[0]+0.2, solusi[1], f'Solusi ({solusi[0]:.2f}, {solusi[1]:.2f})', color='red')
+Memberi teks label pada titik solusi, sedikit bergeser di kanan (+0.2), menampilkan koordinatnya.
+Menambahkan Sumbu X dan Y
+
+# plt.axhline(0, color='black', lw=0.5)
+# plt.axvline(0, color='black', lw=0.5)
+Menambahkan garis horizontal (sumbu x) dan vertikal (sumbu y) berwarna hitam.
+Label Sumbu
+# plt.xlabel('x')
+# plt.ylabel('y')
+Memberi label untuk sumbu X dan Y.
+Judul Grafik
+# plt.title('Grafik Sistem Persamaan Linear (SPL)')
+Menampilkan judul grafik di atas.
+Legenda dan Grid
+# plt.legend()
+# plt.grid(True)
+# plt.legend(): Menampilkan legenda berdasarkan label= sebelumnya.
+# plt.grid(True): Menambahkan grid untuk memperjelas grafik.
+
+ Menampilkan Grafi
+# plt.show()
+Menampilkan grafik ke layar.
+
+sympay 
+
+Import Library
+# from sympy import symbols, Eq, solve
+# import numpy as np
+# import matplotlib.pyplot as plt
+symbols: Membuat variabel simbolik x dan y untuk aljabar.
+Eq: Membuat objek persamaan (equation) di SymPy.
+solve: Menyelesaikan sistem persamaan secara simbolik.
+numpy dan matplotlib.pyplot: Untuk visualisasi grafik, seperti pada kode sebelumnya.
+
+Membuat Variabel Simbolik
+# x, y = symbols('x y')
+Mendefinisikan x dan y sebagai simbol matematika untuk digunakan dalam aljabar simbolik.
+
+Mendefinisikan Persamaan
+# eq1 = Eq(2*x + 3*y, 7)
+# eq2 = Eq(x - y, 1)
+eq1: Persamaan pertama: 2x + 3y = 7
+eq2: Persamaan kedua: x - y = 1
+
+Menyelesaikan SPL secara Simbolik
+# jawaban = solve((eq1, eq2), (x, y))
+solve digunakan untuk menyelesaikan sistem dua persamaan terhadap x dan y.
+Hasilnya berupa dictionary: {x: nilai_x, y: nilai_y}.
+
+Menampilkan Solusi
+# print("Solusi (SymPy):", jawaban)
+Menampilkan hasil solusi dalam bentuk simbolik.
+
+ Konversi Solusi ke Float
+# x_sol = float(jawaban[x])
+# y_sol = float(jawaban[y])
+Mengubah hasil solusi dari bentuk simbolik ke float untuk dipakai dalam grafik (karena Matplotlib butuh data numerik, bukan simbolik).
+
+Membuat Rentang Nilai x
+# x_vals = np.linspace(-5, 5, 400)
+Sama seperti sebelumnya: membuat 400 titik x dari -5 hingga 5 untuk digrafikkan.
+
+Menyusun Fungsi y berdasarkan Persamaan
+# y1 = (7 - 2*x_vals)/3
+# y2 = x_vals - 1
+Diubah dari bentuk SPL menjadi fungsi eksplisit y terhadap x:
+2x + 3y = 7 menjadi y1 = (7 - 2x)/3
+x - y = 1 menjadi y2 = x - 1
+
+Menggambar Garis
+# plt.plot(x_vals, y1, label='2x + 3y = 7', color='blue')
+# plt.plot(x_vals, y2, label='x - y = 1', color='green')
+Menampilkan grafik garis dari dua persamaan SPL.
+
+Menandai Solusi
+# plt.plot(x_sol, y_sol, 'ro', label=f'Solusi ({x_sol:.2f}, {y_sol:.2f})')
+Titik potong dari kedua garis (solusi SPL) ditandai titik merah, sekaligus diberi label.
+
+Menambahkan Sumbu X dan Y
+# plt.axhline(0, color='black', lw=0.5)
+# plt.axvline(0, color='black', lw=0.5)
+Menambahkan garis horizontal dan vertikal sebagai sumbu X dan Y pada grafik.
+
+Label, Judul, dan Grid
+# plt.xlabel('x'); plt.ylabel('y')
+# plt.title('Grafik SPL (SymPy)')
+# plt.grid(True)
+Memberi label sumbu, judul grafik, dan menampilkan grid.
+
+Menampilkan Legenda
+# plt.legend()
+Menampilkan keterangan garis dan titik pada grafik.
+
+Menampilkan Grafik
+# plt.show()
+Menampilkan hasil visualisasi SPL dan solusinya.
+
+SPLT (2) 
+
+# import numpy as np
+# import matplotlib.pyplot as plt
+# from mpl_toolkits.mplot3d import Axes3D
+numpy (np): Untuk perhitungan numerik, array, dan penyelesaian SPL.
+matplotlib.pyplot (plt): Untuk visualisasi grafik.
+mpl_toolkits.mplot3d: Digunakan untuk menggambar grafik 3 dimensi.
+
+Mendefinisikan Matriks dan Vektor
+# A = np.array([
+    [1, 2, 1],
+    [3, -1, 2],
+    [-2, 3, -1]
+])
+# b = np.array([10, 5, -9])
+A: Matriks koefisien dari sistem 3 persamaan:
+Persamaan 1: x + 2y + z = 10
+Persamaan 2: 3x - y + 2z = 5
+Persamaan 3: -2x + 3y - z = -9
+b: Vektor hasil dari persamaan tersebut: [10, 5, -9]
+
+Menyelesaikan SPL
+# sol = np.linalg.solve(A, b)
+# x_sol, y_sol, z_sol = sol
+np.linalg.solve(A, b): Menyelesaikan SPL dengan metode eliminasi/gauss.
+x_sol, y_sol, z_sol: Nilai solusi x, y, dan z.
+
+ Membuat Grid (X, Y)
+
+# x = np.linspace(-10, 10, 100)
+# y = np.linspace(-10, 10, 100)
+# X, Y = np.meshgrid(x, y)
+Membuat grid 2D untuk nilai x dan y.
+X dan Y digunakan sebagai input fungsi untuk mencari nilai Z di permukaan.
+
+Mendefinisikan Fungsi Z dari Tiap Persamaan
+# Z1 = 10 - X - 2*Y        
+dari x + 2y + z = 10 => z = 10 - x - 2y
+# Z2 = (5 - 3*X + Y)/2      
+3x - y + 2z = 5 => z = (5 - 3x + y)/2
+# Z3 = -9 + 2*X - 3*Y      
+-2x + 3y - z = -9 => z = -9 + 2x - 3y
+Mengubah masing-masing persamaan menjadi bentuk eksplisit z = f(x, y) agar bisa divisualisasikan sebagai permukaan.
+
+Membuat Grafik 3D
+# fig = plt.figure(figsize=(10, 7))
+# ax = fig.add_subplot(111, projection='3d')
+Membuat figure ukuran 10x7.
+projection='3d' untuk membuat grafik tiga dimensi.
+
+Menampilkan Permukaan dari Ketiga Persamaan
+# ax.plot_surface(X, Y, Z1, alpha=0.5, color='red', label='x + 2y + z = 10')
+# ax.plot_surface(X, Y, Z2, alpha=0.5, color='blue', label='3x - y + 2z = 5')
+# ax.plot_surface(X, Y, Z3, alpha=0.5, color='green', label='-2x + 3y - z = -9')
+# plot_surface(): Menggambar masing-masing permukaan (plane).
+alpha=0.5: Transparansi permukaan.
+Sayangnya, label tidak ditampilkan langsung di 3D plot, jadi perlu teknik tambahan untuk menampilkan legenda jika dibutuhkan.
+
+ Menampilkan Titik Solusi
+# ax.scatter(x_sol, y_sol, z_sol, color='black', s=50, label='Solusi')
+Menandai titik potong dari ketiga bidang — yaitu solusi SPL — sebagai titik hitam (scatter) dengan ukuran (s=50).
+
+Label, Judul, dan Tampilkan Grafik
+# ax.set_xlabel('X')
+# ax.set_ylabel('Y')
+# ax.set_zlabel('Z')
+# ax.set_title('Grafik SPL 3 Variabel')
+# plt.show()
+Memberi label pada sumbu x, y, dan z serta judul grafik.
+Menampilkan grafik 3D.
+
+sympy (2)
+
+# import sympy as sp
+# from mpl_toolkits.mplot3d import Axes3D
+sympy untuk menyelesaikan sistem persamaan secara simbolik.
+Axes3D digunakan untuk plotting grafik 3 dimensi dengan Matplotlib.
+
+2. Deklarasi Matriks dan Vektor SPL
+# A3 = np.array([[1, 2, 1], [3, -1, 2], [-2, 3, -1]])
+# b3 = np.array([10, 5, -9])
+A3 adalah matriks koefisien.
+b3 adalah vektor hasil.
+Sistem ini merepresentasikan 3 persamaan linear:
+x + 2y + z = 10
+3x - y + 2z = 5
+-2x + 3y - z = -9
+3. Solusi dengan NumPy (Numerik)
+# sol3_np = np.linalg.solve(A3, b3)
+Menyelesaikan SPL dengan metode eliminasi Gaussian (dalam np.linalg.solve) untuk mendapatkan solusi numerik.
+
+4. Solusi dengan SymPy (Simbolik)
+# x, y, z = sp.symbols('x y z')
+# sol3_sp = sp.solve([
+    x + 2*y + z - 10,
+    3*x - y + 2*z - 5,
+    -2*x + 3*y - z + 9
+], (x, y, z))
+Mendefinisikan variabel simbolik x, y, z.
+Menyusun persamaan menjadi bentuk standar = 0.
+Menyelesaikannya menggunakan sp.solve() untuk mendapatkan solusi eksak (bukan aproksimasi).
+
+5. Menampilkan Solusi
+# print("Soal 3 & 4:\nx + 2y + z = 10\n3x - y + 2z = 5\n-2x + 3y - z = -9")
+# print("Solusi NumPy:", sol3_np)
+# print("Solusi SymPy:", sol3_sp, "\n")
+Mencetak sistem persamaan dan hasil solusi baik dari NumPy maupun SymPy.
+
+6. Grid X dan Y untuk Visualisasi
+# xv = np.linspace(-10, 10, 100)
+# yv = np.linspace(-10, 10, 100)
+# X, Y = np.meshgrid(xv, yv)
+Membuat grid untuk sumbu x dan y dengan 100 titik antara -10 sampai 10.
+meshgrid menciptakan matriks 2D dari pasangan koordinat (x, y).
+
+7. Mendefinisikan Z untuk Tiap Persamaan
+# Z1 = 10 - X - 2*Y
+# Z2 = (5 - 3*X + Y)/2
+# Z3 = -9 + 2*X - 3*Y
+Tiap persamaan diubah ke bentuk eksplisit z = f(x, y):
+Dari x + 2y + z = 10 → z = 10 - x - 2y
+Dari 3x - y + 2z = 5 → z = (5 - 3x + y)/2
+Dari -2x + 3y - z = -9 → z = -9 + 2x - 3y
+
+8. Membuat Grafik 3D
+# fig = plt.figure()
+# ax = fig.add_subplot(111, projection='3d')
+# for Z, c in zip([Z1, Z2, Z3], ['red', 'blue', 'green']):
+# ax.plot_surface(X, Y, Z, alpha=0.5, color=c)
+Membuat canvas grafik 3D (projection='3d').
+plot_surface menggambarkan tiga bidang berdasarkan Z1, Z2, Z3.
+alpha=0.5 membuat permukaan semi-transparan.
+
+9. Label dan Judul
+# ax.set_xlabel('X'); ax.set_ylabel('Y'); ax.set_zlabel('Z')
+# plt.title("SPL 3 Variabel")
+Menambahkan label sumbu dan judul pada grafik.
+
+10. Menampilkan Grafik
+# plt.show()
+Menampilkan hasil plot tiga bidang dalam ruang 3 dimensi.
+Catatan Tambahan (Opsional Tapi Disarankan)
+Jika kamu ingin menampilkan titik solusi dari hasil NumPy ke dalam grafik, tambahkan kode ini sebelum plt.show():
+
+# ax.scatter(sol3_np[0], sol3_np[1], sol3_np[2], color='black', s=50, label='Solusi')
+# ax.legend()
