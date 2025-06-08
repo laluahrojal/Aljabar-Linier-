@@ -1,0 +1,55 @@
+# print ("--"*30)
+ Fungsi: Mencetak garis pembatas menggunakan karakter -- sebanyak 30 kali.
+ Kegunaan: Membuat output lebih rapi dan membedakan bagian-bagian program.
+
+# matriks_list = [[-2,1,-1], [-3,-1,2], [-2,1,2]]
+ Fungsi: Mendeklarasikan sebuah matriks 3x3 menggunakan list of lists.
+ Kegunaan: Menyimpan data matriks untuk bisa diproses atau ditampilkan.
+
+# print("Ini adalah matriks dari list:")
+ Fungsi: Menampilkan teks pengantar sebelum menampilkan isi matriks.
+ Kegunaan: Memberi tahu pengguna bahwa yang akan ditampilkan adalah matriks list.
+
+# print (matriks_list)
+ Fungsi: Mencetak isi matriks list.
+ Kegunaan: Menampilkan bentuk data matriks secara langsung di terminal.
+
+# print ("\nini adalah elemen dari matriks list:")
+ Fungsi: Menampilkan teks sebagai pembuka untuk daftar elemen satu per satu.
+ Kegunaan: Menandai bagian yang akan mencetak setiap elemen matriks dengan posisi baris dan kolomnya.
+
+# for i in range (len(matriks_list)):
+ Fungsi: Loop untuk menelusuri baris-baris matriks.
+ Kegunaan: Memungkinkan kita mengakses setiap baris secara terurut.
+
+# for j in range (len(matriks_list[i])):
+ Fungsi: Loop untuk menelusuri elemen dalam baris ke-i.
+ Kegunaan: Mengakses setiap kolom dari baris tertentu agar bisa memproses elemen-elemen.
+
+# print (f"Baris ke-{i+1} elemen ke-{j+1} adalah {matriks_list[i][j]}")
+ Fungsi: Menampilkan elemen matriks beserta posisi baris dan kolomnya (dihitung dari 1).
+ Kegunaan: Memberikan info lengkap tentang isi matriks dalam format yang mudah dibaca.
+
+# print ("--"*30)
+ Fungsi: Mencetak lagi garis pemisah.
+ Kegunaan: Menandai akhir bagian pertama (matriks list) sebelum masuk ke bagian berikutnya.
+
+# import numpy as np
+ Fungsi: Mengimpor pustaka NumPy dan memberi nama alias np.
+ Kegunaan: Menyediakan fitur array dan operasi matematika yang lebih kuat dari list biasa.
+
+# matriks_array = np.array([[-2,1,-1], [-3,-1,2], [-2,1,2]])
+ Fungsi: Membuat matriks yang sama, tapi dalam bentuk NumPy array.
+ Kegunaan: Memungkinkan operasi seperti penjumlahan, perkalian, invers, dll., lebih efisien.
+
+# print("Ini adalah matriks array: ")
+ Fungsi: Menampilkan teks pengantar untuk bagian matriks NumPy.
+ Kegunaan: Memberi tahu pengguna bahwa hasil berikut adalah matriks dari array.
+
+# print (matriks_array)
+ Fungsi: Menampilkan isi matriks NumPy dalam bentuk tabel.
+ Kegunaan: Menunjukkan data yang tersimpan dalam bentuk array.
+
+# print ("\nini adalah elemen dari matriks array:")
+ Fungsi: Teks pengantar untuk (rencananya) mencetak elemen array satu per satu.
+ Kegunaan: Menyiapkan pengguna untuk melihat data array secara mendetail (meskipun belum dilanjutkan).
