@@ -1,0 +1,72 @@
+1. Mengimpor library
+# import numpy as np
+Fungsi: Mengimpor library NumPy sebagai np.
+Kegunaan: Agar bisa menggunakan fungsi matriks dan operasi matematis dari NumPy.
+
+2. Membuat Matriks A dan B
+# matriks_a = np.array([[11, 12, 13],
+                     [14, 15, 16],
+                     [17, 18, 19]])
+Fungsi: Membuat matriks 3x3 A.
+Kegunaan: Digunakan sebagai operand dalam operasi matriks.
+
+# matriks_b = np.array([[20, 21, 22],
+                      [23, 24, 25],
+                      [26, 27, 28]])
+Fungsi: Membuat matriks 3x3 B.
+Kegunaan: Pasangan dari matriks A untuk operasi seperti penjumlahan, pengurangan, dst.
+
+3. Operasi Matriks
+➤ Penjumlahan
+# penjumlahan_matriks = matriks_a + matriks_b
+Fungsi: Menjumlahkan elemen A dan B.
+Kegunaan: Hasil = elemen [i][j] A + [i][j] B.
+➤ Pengurangan
+# pengurangan_matriks = matriks_a - matriks_b
+Fungsi: Mengurangkan elemen A dan B.
+Kegunaan: Hasil = elemen A dikurang B per posisi.
+➤ Perkalian Skalar Elemen-per-Elemen
+# perkalian_skalar = matriks_a * matriks_b
+Fungsi: Mengalikan elemen A dan B satu per satu (bukan matriks!).
+Kegunaan: Digunakan untuk operasi Hadamard Product (bukan dot product).
+➤ Perkalian Dot Product (Matriks)
+# perkalian_dot = np.dot(matriks_a, matriks_b)
+Fungsi: Melakukan perkalian matriks yang sebenarnya.
+Kegunaan: Digunakan dalam sistem linear, grafik, machine learning.
+➤ Perkalian Cross Product
+# perkalian_cross = np.cross(matriks_a, matriks_b)
+Fungsi: Menghitung cross product per baris.
+Kegunaan: Umumnya digunakan dalam vektor 3D, jadi hasilnya adalah cross dari baris ke-1 A dengan baris ke-1 B, dst.
+
+4. Transposisi
+
+# transpose_a = np.transpose(matriks_a)
+Fungsi: Membalik baris jadi kolom.
+Kegunaan: Penting dalam aljabar linear dan transformasi.
+
+# transpose_b = np.transpose(matriks_b)
+Fungsi & Kegunaan: Sama seperti transpose_a, tapi untuk matriks B.
+
+5. Menampilkan Semua Hasil
+# print("Matriks A:\n", matriks_a)
+Fungsi: Menampilkan isi matriks A.
+
+# print("Matriks B:\n", matriks_b)
+Fungsi: Menampilkan isi matriks B.
+
+# print("Penjumlahan Matriks A + B:\n", penjumlahan_matriks)
+Fungsi: Menampilkan hasil penjumlahan.
+
+# print("Pengurangan Matriks A - B:\n", pengurangan_matriks)
+Fungsi: Menampilkan hasil pengurangan.
+
+# print("Perkalian Dot Matriks A . B:\n", perkalian_dot)
+Fungsi: Menampilkan hasil perkalian matriks yang valid.
+
+# print("Perkalian Cross Matriks A x B (per baris):\n", perkalian_cross)
+Fungsi: Menampilkan hasil cross product tiap baris.
+
+#print("Transpose Matriks A:\n", transpose_a)
+# print("Transpose Matriks B:\n", transpose_b)
+Fungsi: Menampilkan hasil transpos dari A dan B.
+
